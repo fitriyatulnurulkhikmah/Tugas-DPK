@@ -1,22 +1,33 @@
-const judul = document.getElementById('judul');
-judul.style.color='white';
-judul.style.backgroundColor='black';
-judul.style.textAlign='center';
-judul.innerHTML='Fitriyatul';
+let kesempatan = 3;
 
-const p = document.getElementsByTagName('p');
-p[2].style.backgroundColor='lightblue';
+// Memunculkan nomor random
+ let y = Math.floor(Math.random() * 10 + 1);
+ 
+ let guess = 1;
 
-for(let i=0;i<p.length; i++){
-    p[i].style.backgroundColor = 'lightblue';
-}
+ document.getElementById("submitguess").onclick = function () {
 
-const h1 = document.getElementsByTagName('h1');
-h1[0].style.fontSize='50px';
+     // Tebakan nomor   
+     let x = document.getElementById("guessField").value;
 
-const p4 = document.getElementsByTagName ('p');
-p4[3].style.backgroundColor ='pink';
+     if (x == y) {
+         alert("YEYY KAMU BENAR"
+             + guess + " Tebakan ");
+     }
 
-//const sectionB = document.getElementById('p');
-//const p4 = sectionB.querySelector('p');
-//p4.style.backgroundColor = 'lightblue';
+     /* Bila nomor tidak sesuai*/
+     else if (x > y) {
+        kesempatan--
+         guess++;
+         alert("MASIH RENDAH");
+         alert("Kesempatan Tersisa: " + kesempatan)
+     }
+     else {
+        kesempatan--
+         guess++;
+         alert("KURANG TINGGI")
+         alert("Kesempatan Tersisa: " + kesempatan)
+     }
+     if (kesempatan === 0) 
+     alert("Kesempatan Telah Habis.\nJawaban Yang benar adalah " + y)
+ }
